@@ -1,4 +1,3 @@
-// src/useFetchMovies.js
 import { useEffect, useState } from "react";
 import { searchMovies } from "./omdb";
 import { useMovieContext } from "./MovieContext";
@@ -25,7 +24,6 @@ export function useFetchMovies() {
       const filtersActive =
         selectedGenre !== "All" || selectedYear !== "All" || minRating > 0;
 
-      // we are in "browsing" mode if no search AND no filters
       if (!hasSearchText && !filtersActive) {
         setMovies([]);
         setLoading(false);
@@ -34,14 +32,11 @@ export function useFetchMovies() {
         return;
       }
 
-      // either a search or at least one filter is active
       setHasActiveQuery(true);
       setLoading(true);
       setError("");
 
       try {
-        // if user typed something, use that
-        // if not, use a generic term and then filter by genre/year/rating
         const query = hasSearchText ? searchTerm : "movie";
 
         const results = await searchMovies(

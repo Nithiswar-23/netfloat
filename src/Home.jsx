@@ -1,4 +1,3 @@
-// src/Home.jsx
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
@@ -8,16 +7,14 @@ import MovieCard from "./MovieCard";
 import { useFetchMovies } from "./useFetchMovies";
 import { getMovieById } from "./omdb";
 
-// 5 big featured movies for hero slider
 const SLIDER_IDS = [
-  "tt4154796", // Avengers: Endgame
-  "tt4154756", // Avengers: Infinity War
-  "tt7286456", // Joker
-  "tt1375666", // Inception
-  "tt0816692", // Interstellar
+  "tt4154796", 
+  "tt4154756", 
+  "tt7286456", 
+  "tt1375666", 
+  "tt0816692",
 ];
 
-// Optional custom hero backdrops (place files in public/hero/)
 const HERO_BACKDROPS = {
   tt4154796: "/hero/endgame.jpg",
   tt4154756: "/hero/infinity-war.jpg",
@@ -26,7 +23,6 @@ const HERO_BACKDROPS = {
   tt0816692: "/hero/interstellar.jpg",
 };
 
-// Genre rows (fixed IDs)
 const GENRE_SECTIONS = {
   "Action & Adventure": [
     "tt4154796",
@@ -63,21 +59,17 @@ const Home = () => {
     hasActiveQuery,
   } = useFetchMovies();
 
-  // Slider state
   const [sliderMovies, setSliderMovies] = useState([]);
   const [sliderLoading, setSliderLoading] = useState(true);
   const [sliderError, setSliderError] = useState("");
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Genre sections state
   const [sectionMovies, setSectionMovies] = useState({});
   const [sectionsLoading, setSectionsLoading] = useState(true);
   const [sectionsError, setSectionsError] = useState("");
 
-  // Show/hide search panel
   const [showFiltersPanel, setShowFiltersPanel] = useState(false);
 
-  // Fetch featured slider movies
   useEffect(() => {
     let cancelled = false;
 
@@ -104,7 +96,6 @@ const Home = () => {
     };
   }, []);
 
-  // Fetch genre-section movies
   useEffect(() => {
     let cancelled = false;
 
@@ -178,7 +169,6 @@ const Home = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6 space-y-8">
-      {/* Top bar: quick filters + search icon */}
       <div className="flex items-center justify-between mb-2 gap-4">
         <FilterBar />
 
@@ -190,7 +180,6 @@ const Home = () => {
         </button>
       </div>
 
-      {/* Search + filters panel (with full search bar) */}
       {showFiltersPanel && (
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3">
           <SearchBar />
@@ -198,7 +187,6 @@ const Home = () => {
         </div>
       )}
 
-      {/* IF WE HAVE A SEARCH → ONLY SHOW RESULTS */}
       {hasActiveQuery ? (
         <section className="pt-2">
           <h2 className="text-lg font-semibold mb-3">Search results</h2>
@@ -210,9 +198,7 @@ const Home = () => {
         </section>
       ) : (
         <>
-          {/* Otherwise, show hero + categories like a streaming home page */}
 
-          {/* HERO */}
           <section>
             {sliderLoading && (
               <div className="text-gray-400 text-sm py-6">
@@ -288,7 +274,6 @@ const Home = () => {
             )}
           </section>
 
-          {/* GENRE ROWS */}
           <section className="space-y-6">
             {sectionsLoading && (
               <div className="text-gray-400 text-sm">Loading categories...</div>

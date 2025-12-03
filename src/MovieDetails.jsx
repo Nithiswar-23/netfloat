@@ -1,4 +1,3 @@
-// src/MovieDetails.jsx
 import React from "react";
 import RatingStars from "./RatingStars";
 import { useMovieContext } from "./MovieContext";

@@ -1,4 +1,3 @@
-// src/RatingStars.jsx
 import React from "react";
 
 const Star = ({ filled, onClick }) => (

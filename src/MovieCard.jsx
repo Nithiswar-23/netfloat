@@ -1,4 +1,3 @@
-// src/MovieCard.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import RatingStars from "./RatingStars";
@@ -18,7 +17,7 @@ const MovieCard = ({ movie }) => {
   } = movie;
 
   const userRating = ratings[imdbID] || 0;
-  const omdbRating = parseFloat(imdbRating || "0") / 2; // convert /10 to /5
+  const omdbRating = parseFloat(imdbRating || "0") / 2;
   const effectiveRating = userRating || omdbRating || 0;
 
   const handleClick = () => {

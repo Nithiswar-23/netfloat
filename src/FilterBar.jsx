@@ -1,8 +1,7 @@
-// src/FilterBar.jsx
+
 import React from "react";
 import { useMovieContext } from "./MovieContext";
 
-// Static options so filters always have values
 const GENRES = [
   "All",
   "Action",

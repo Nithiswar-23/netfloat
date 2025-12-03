@@ -1,4 +1,3 @@
-// src/MovieContext.jsx
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 const MovieContext = createContext();

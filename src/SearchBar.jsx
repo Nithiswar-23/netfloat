@@ -1,4 +1,3 @@
-// src/SearchBar.jsx
 import React, { useState } from "react";
 import { useMovieContext } from "./MovieContext";
 
