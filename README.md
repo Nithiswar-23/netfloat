@@ -54,7 +54,7 @@ npm run dev
 
 Visit:
 
-http://localhost:5173
+https://netfloat.netlify.app/
 
 🔑 OMDB API Key
 
